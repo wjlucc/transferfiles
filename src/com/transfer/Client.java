@@ -26,6 +26,7 @@ public class Client {
 		String name = "10993561_165851054340_2.jpg";
 		String host = "localhost";
 		
+		
 		//1.创建UDP邮筒，用于发送信件，发送邮筒不需要绑定端口。
 		DatagramSocket datagramSocket = new DatagramSocket();
 		
@@ -58,14 +59,12 @@ public class Client {
 			bufferedOutputStream.write(info, 0, len);			
 		}
 		
-		
-		socket.shutdownOutput();
-	
+//		socket.shutdownOutput();	
 		
 		//最后要关闭资源。
 		bufferedInputStream.close();
-		bufferedOutputStream.close();
-		outputStream.close();
+//		bufferedOutputStream.close();
+//		outputStream.close();
 		socket.close();
 		
 		datagramSocket.close();

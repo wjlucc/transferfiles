@@ -41,11 +41,12 @@ public class ServerThread extends Thread {
 //				System.out.println(Arrays.toString(info));
 			}
 			System.out.println("文件已经完全写入！");
-			this.socket.shutdownInput();
-
+			
+//			this.socket.shutdownInput();
 			bufferedOutputStream.close();
-			bufferedInputStream.close();
-			inputStream.close();
+//			bufferedInputStream.close();
+//			inputStream.close();
+			
 			this.socket.close();
 			
 			

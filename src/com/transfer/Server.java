@@ -20,6 +20,7 @@ public class Server {
 		// 创建一个DatagramSocket作为接收文件名的邮筒，绑定端口8889
 		DatagramSocket datagramSocket = new DatagramSocket(8889);
 
+		
 		// 这个对象每次用来获取文件名。
 		ServerGetName getName = new ServerGetName(datagramSocket);
 
