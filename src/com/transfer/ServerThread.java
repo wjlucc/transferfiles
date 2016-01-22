@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
+import java.util.Arrays;
 
 public class ServerThread extends Thread {
 	private Socket socket = null;
@@ -13,7 +14,7 @@ public class ServerThread extends Thread {
 
 	public ServerThread(Socket socket, String name) {
 		this.socket = socket;
-		this.name = "1"+name;
+		this.name = "D:\\接收\\"+name;
 	}
 
 	public void run() {
@@ -37,13 +38,17 @@ public class ServerThread extends Thread {
 			while ((len = bufferedInputStream.read(info)) != -1) {
 				// 进入了循环，说明已经将信息读到了，字节数组中。
 				bufferedOutputStream.write(info, 0, len);
+//				System.out.println(Arrays.toString(info));
 			}
 			System.out.println("文件已经完全写入！");
+			this.socket.shutdownInput();
 
 			bufferedOutputStream.close();
 			bufferedInputStream.close();
 			inputStream.close();
 			this.socket.close();
+			
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
